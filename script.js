@@ -1328,8 +1328,8 @@
 
             const notif = document.createElement('div');
             notif.id = 'dupNotif';
-            notif.style.cssText = 'position:fixed;top:70px;left:50%;transform:translateX(-50%);z-index:9999;background:#fff3cd;border:2px solid #ffc107;border-radius:14px;padding:12px 18px;box-shadow:4px 4px 0 rgba(0,0,0,0.2);font-family:Comic Neue,cursive;font-weight:700;font-size:0.9rem;color:#856404;cursor:pointer;max-width:90%;text-align:center;';
-            notif.innerHTML = '<svg style="width:16px;height:16px;stroke:#856404;fill:none;stroke-width:2;display:inline;vertical-align:middle;margin-right:5px;" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg> Ada file duplikat, klik disini';
+            notif.style.cssText = 'position:fixed;top:70px;left:50%;transform:translateX(-50%);z-index:9999;background:var(--warning-soft);border:1px solid var(--warning-color);border-radius:14px;padding:12px 18px;box-shadow:var(--shadow-md);font-family:var(--font-body);font-weight:600;font-size:0.9rem;color:var(--warning-color);cursor:pointer;max-width:90%;text-align:center;';
+            notif.innerHTML = '<svg style="width:16px;height:16px;stroke:var(--warning-color);fill:none;stroke-width:2;display:inline;vertical-align:middle;margin-right:5px;" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg> Ada file duplikat, klik disini';
             notif.onclick = () => {
                 notif.remove();
                 openGalleryPage();
@@ -1580,17 +1580,17 @@
             if(old) old.remove();
             const menu = document.createElement('div');
             menu.id = 'musicContextMenu';
-            menu.style.cssText = `position:fixed; background:var(--card-bg); border:2px solid var(--text-color); border-radius:14px; box-shadow:4px 4px 0 var(--text-color); z-index:9999; overflow:hidden; min-width:160px;`;
+            menu.style.cssText = `position:fixed; background:var(--card-bg); border:1px solid var(--border-color); border-radius:14px; box-shadow:var(--shadow-md); z-index:9999; overflow:hidden; min-width:160px;`;
             // Posisi menu dekat tombol
             const rect = event.target.getBoundingClientRect();
             menu.style.top = (rect.bottom + 4) + 'px';
             menu.style.right = (window.innerWidth - rect.right) + 'px';
             menu.innerHTML = `
-                <div onclick="renameMusicTrack(${id}, '${name.replace(/'/g,"\\'")}'); document.getElementById('musicContextMenu').remove();" style="padding:12px 18px; cursor:pointer; font-weight:bold; font-family:'Patrick Hand'; font-size:0.95rem; border-bottom:1px solid rgba(0,0,0,0.1); display:flex; align-items:center; gap:8px;">
+                <div onclick="renameMusicTrack(${id}, '${name.replace(/'/g,"\\'")}'); document.getElementById('musicContextMenu').remove();" style="padding:12px 18px; cursor:pointer; font-weight:600; font-family:var(--font-body); font-size:0.9rem; border-bottom:1px solid var(--border-color); display:flex; align-items:center; gap:8px; color:var(--text-color);">
                     <svg style="width:16px;height:16px;stroke:var(--primary-color);fill:none;stroke-width:2;" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
                     Ganti Nama
                 </div>
-                <div onclick="confirmDeleteMusicFromPage(${id}); document.getElementById('musicContextMenu').remove();" style="padding:12px 18px; cursor:pointer; font-weight:bold; font-family:'Patrick Hand'; font-size:0.95rem; color:#e53935; display:flex; align-items:center; gap:8px;">
+                <div onclick="confirmDeleteMusicFromPage(${id}); document.getElementById('musicContextMenu').remove();" style="padding:12px 18px; cursor:pointer; font-weight:600; font-family:var(--font-body); font-size:0.9rem; color:var(--danger-color); display:flex; align-items:center; gap:8px;">
                     <svg style="width:16px;height:16px;stroke:#e53935;fill:none;stroke-width:2;" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
                     Hapus
                 </div>`;
